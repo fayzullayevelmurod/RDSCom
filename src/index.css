@@ -12,18 +12,24 @@ a {
   text-decoration: none;
   display: inline-block;
 }
-
+button {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
 body {
   margin: 0;
   font-family: 'Gilroy';
   font-weight: 500;
   color: #fff;
-  background: url(../src/assets/bg.png) no-repeat;
-  background-size: 100% 100%;
+  background: url(./assets/all-bg.png);
 }
 
 .container {
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
+}
+.wrapper {
+  overflow: hidden;
 }

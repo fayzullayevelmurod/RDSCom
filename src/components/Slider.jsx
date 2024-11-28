@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import assets from '../assets';
 
-export const Slider = () => {
+export const Slider = ({ setSliderClass }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = [
@@ -10,34 +10,39 @@ export const Slider = () => {
       title: 'Российская сеть дальней космической связи',
       description:
         'Мы обеспечиваем надежную радиосвязь с космическими аппаратами при полетах к Луне, Марсу и другим планетам Солнечной системы',
+      btnText: 'Евпатория',
     },
     {
       id: 2,
       title: 'Российская сеть дальней космической связи 2',
       description:
         'Мы обеспечиваем надежную радиосвязь с космическими аппаратами при полетах к Луне, Марсу и другим планетам Солнечной системы',
+      btnText: 'Уссурийск',
     },
     {
       id: 3,
       title: 'Российская сеть дальней космической связи 3',
       description:
         'Мы обеспечиваем надежную радиосвязь с космическими аппаратами при полетах к Луне, Марсу и другим планетам Солнечной системы',
+      btnText: 'Медвежьи Озера',
     },
     {
       id: 4,
       title: 'Российская сеть дальней космической связи 4',
       description:
         'Мы обеспечиваем надежную радиосвязь с космическими аппаратами при полетах к Луне, Марсу и другим планетам Солнечной системы',
+      btnText: 'Калязин',
     },
   ];
 
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % slides.length);
+  const goToSlide = (index) => {
+    setActiveSlide(index);
   };
 
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  // Update the parent class (home-page)
+  useEffect(() => {
+    setSliderClass(`slide-${activeSlide + 1}`);
+  }, [activeSlide, setSliderClass]);
 
   return (
     <div className='slider'>
@@ -51,8 +56,28 @@ export const Slider = () => {
           Оставить заявку
         </a>
       </div>
-      <button onClick={prevSlide}>Previous</button>
-      <button onClick={nextSlide}>Next</button>
+      <div className='swiper-paginations'>
+        <div className='swiper-btns'>
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`swiper-btn__box ${
+                activeSlide === index ? 'active' : ''
+              }`}
+              onClick={() => goToSlide(index)}
+            >
+              <span className='swiper-btn__box-count'>{`0${index + 1}`}</span>
+              <button>{slide.btnText}</button>
+            </div>
+          ))}
+        </div>
+        <div className='pagination'>
+          <p>
+            <span className='active-slider'>{`${activeSlide + 1}`}</span>
+            <span>/ {slides.length}</span>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

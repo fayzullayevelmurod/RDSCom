@@ -21,10 +21,29 @@
 
 /* home-page */
 .home-page {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  background-image: url(../src/assets/all-bg.png);
+  /* background-size: 100% 100%;
+  background-repeat: no-repeat; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.home-page.slide-1 {
+  background-image: url(../assets/bg-one.png);
+}
+.home-page.slide-2 {
+  background-image: url(../assets/bg-two.png);
+}
+.home-page.slide-3 {
+  background-image: url(../assets/bg-three.png);
+}
+.home-page.slide-4 {
+  background-image: url(../assets/bg-four.png);
 }
 .slider {
   padding: 212px 0 74px 0;
@@ -64,4 +83,72 @@
   width: 46px;
   height: 35px;
 }
-/* home-page */
+.slider .swiper-btn__box {
+  position: relative;
+}
+.slider .swiper-btn__box.active .swiper-btn__box-count {
+  color: #fff;
+  font-weight: 600;
+}
+
+.slider .swiper-btn__box-count {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.19px;
+  color: #ffffff73;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  /* transition: all .2s linear; */
+}
+.slider .swiper-btn__box button {
+  min-width: 218px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 57px 0 85px;
+  height: 78px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.13px;
+  color: #ffffffb2;
+  background: url(../assets/btn-bg-2.svg) no-repeat;
+  background-size: cover;
+  background-position: top left;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  /* transition: all .2s linear; */
+}
+
+.slider .swiper-btn__box.active button {
+  background: url(../assets/btn-bg-hover.svg) no-repeat;
+  /* font-weight: 600; */
+  background-size: cover;
+  background-position: top left;
+  color: #fff;
+}
+.slider .swiper-btns {
+  display: flex;
+  gap: 10px;
+}
+.slider .swiper-paginations {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.slider .pagination span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.19px;
+}
+.slider .pagination .active-slider {
+  font-size: 71px;
+  font-weight: 400;
+  line-height: 82.13px;
+}
