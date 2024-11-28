@@ -19,10 +19,10 @@ button {
 }
 body {
   margin: 0;
-  font-family: 'Gilroy';
+  font-family: 'Gilroy', sans-serif;
   font-weight: 500;
   color: #fff;
-  background: url(./assets/all-bg.png);
+  background: url(./assets/all-bg.webp);
 }
 
 .container {
