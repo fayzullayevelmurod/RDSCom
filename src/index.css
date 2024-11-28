@@ -26,10 +26,26 @@ body {
 }
 
 .container {
-  max-width: 1300px;
-  width: 100%;
+  width: 1300px;
   margin: 0 auto;
 }
 .wrapper {
   overflow: hidden;
+}
+
+/* media */
+@media (max-width: 1350px) {
+  .container {
+    width: unset;
+    margin: 0;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }

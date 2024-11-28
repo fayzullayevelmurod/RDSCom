@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <div className={`home-page ${sliderClass}`}>
       <Header />
-      <div className='container'>
+      <div className='home-page__container container'>
         <Slider setSliderClass={setSliderClass} />
       </div>
     </div>
